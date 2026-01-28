@@ -29,6 +29,7 @@ const Profile = () =>{
         }
         fetchData()
     },[])
+    
 
     return (
         <User name={user?.name} profilePic={user?.profilePic} email={user?.email}  />

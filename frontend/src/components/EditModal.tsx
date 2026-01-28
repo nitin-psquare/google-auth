@@ -33,16 +33,43 @@ const EditModal = ({ isOpen, onClose }:any) => {
             }} onClick={onClose}>
             &times;
             </button>
+            <br></br>
 
-            <input onChange={(e)=>{
-                setName(e.target.value)
-            }} placeholder="name"/>
+            <input
+                style={{
+                padding: '10px',
+                border: '1px solid #ccc',
+                borderRadius: '4px',
+                marginRight: '10px',
+                fontSize: '16px' 
+                }}
+            
+                onChange={(e)=>{
+                    setName(e.target.value)
+                }} 
+                placeholder="name"
+            />
 
-            <input onChange={(e)=>{
-                setEmail(e.target.value)
-            }}  placeholder="email"/>
+            <input
+                style={{
+                padding: '10px',
+                border: '1px solid #ccc',
+                borderRadius: '4px',
+                marginRight: '10px',
+                fontSize: '16px' 
+                }}
+        
+                onChange={(e)=>{
+                    setEmail(e.target.value)
+                }} 
+                placeholder="email"
+            />
 
-            <button onClick={handleSubmit}>submit</button>
+            <br></br>
+
+            <button style={{
+                marginTop:"4px"
+            }} onClick={handleSubmit}>submit</button>
 
         </div>
     </div>

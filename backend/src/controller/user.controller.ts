@@ -2,10 +2,10 @@ import express, { Router, type Request, type Response } from "express";
 import User from "../model/user.model.js"
 import jwt from "jsonwebtoken"
 import { OAuth2Client } from "google-auth-library";
+import dotenv from "dotenv"
+dotenv.config()
 
-
-
-const client = new OAuth2Client("1038120470687-6uiv3ntru1cffho9fbhtg32b9758qvb9.apps.googleusercontent.com")
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID)
 
 
 async function auth(req:Request,res:Response) {
@@ -13,7 +13,7 @@ async function auth(req:Request,res:Response) {
 
     const userData = await client.verifyIdToken({
         idToken:token,
-        audience:"1038120470687-6uiv3ntru1cffho9fbhtg32b9758qvb9.apps.googleusercontent.com"
+        audience:process.env.GOOGLE_CLIENT_ID ||""
     })
 
     const payloadData = userData.getPayload();
